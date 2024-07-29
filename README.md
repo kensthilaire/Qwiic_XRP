@@ -5,7 +5,7 @@ This repository contains QWIIC device drivers ported for use with XRP.
 The following devices are currently supported:
 
 * [SparkFun Qwiic OLED Display](https://www.sparkfun.com/products/24606)
-* [	SparkFun Qwiic LED Stick](https://www.sparkfun.com/products/18354)
+* [SparkFun Qwiic LED Stick](https://www.sparkfun.com/products/18354)
 * [Person Sensor by Useful Sensors](https://www.sparkfun.com/products/21231)
 * [SparkFun Optical Tracking Odometry Sensor](https://www.sparkfun.com/products/24904)
 
@@ -47,7 +47,11 @@ Sample code using each of the supported Qwiic devices is available in the **`exa
 
 The **`xrp_display.py`** example contains a class definition that encapsulates the base device driver and provides a multiline display buffer for the SparkFun OLED display device. Instantiate the XrpDisplay class in your program to have your XRP display status information at runtime.
 
+### LED Strip Example
+
 The **`xrp_led_strip.py`** example contains a class definition that encapsulates the base device driver and provides support for the SparkFun LED strip with 10 pixels. Intantiate the XrpLedStick class in your program to allow your XRP to display status via the LED strip.
+
+### Person Sensor Example
 
 The **`xrp_person_sensor.py`** example contains a class definition that encapsulates the base device driver and provides support for the UsefulSensor's Person Sensor device. Intantiate the XrpPersonSensor class in your program to allow your XRP to detect a human face and control behavior based on facial recognition.
 
