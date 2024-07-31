@@ -1,22 +1,8 @@
 from XRPLib.defaults import *
-import json
 import time
 
+from xrp_config import read_config
 from Qwiic.qwiic_person_sensor import QwiicPersonSensor
-
-#
-# Function to read a JSON formatted config file with the XRP configuration
-# information to set up the network interface and other control parameters
-#
-def read_config( filename='config.json' ):
-    data = ''
-
-    with open( filename ) as fd:
-        try:
-            data = json.load(fd)
-        except ValueError as err:
-            print( err )
-    return data
 
 def find_user(users, face):
     for user in users:
@@ -26,7 +12,7 @@ def find_user(users, face):
 
 
 if __name__ == '__main__':
-    config = read_config()
+    config = read_config(section='person_sensor')
     users = config.get('users',list())
 
     person_sensor = QwiicPersonSensor()

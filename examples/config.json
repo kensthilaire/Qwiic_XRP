@@ -1,0 +1,26 @@
+{
+    "person_sensor" : {
+        "users" : [
+            {
+                "id" : 0,
+                "name" "Dean"
+            },
+            {
+                "id" : 1,
+                "name" "Woodie"
+            }
+        ]
+    },
+    "led_strip" : {
+        "num_leds" : 10,
+        "brightness" : 1
+        
+    },
+    
+    "oled_display" : {
+        "display_type" : "small"
+    },
+
+    "end" : {
+    }
+}
