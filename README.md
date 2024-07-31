@@ -5,7 +5,7 @@ This repository contains QWIIC device drivers ported for use with XRP.
 The following devices are currently supported:
 
 * [SparkFun Qwiic OLED Display](https://www.sparkfun.com/products/24606)
-* [SparkFun Qwiic LED Stick](https://www.sparkfun.com/products/18354)
+* [	SparkFun Qwiic LED Stick](https://www.sparkfun.com/products/18354)
 * [Person Sensor by Useful Sensors](https://www.sparkfun.com/products/21231)
 * [SparkFun Optical Tracking Odometry Sensor](https://www.sparkfun.com/products/24904)
 
@@ -13,7 +13,7 @@ The following devices are currently supported:
 
 The XRP Code Editor does not support copying a directory (folder) hierarchy from your computer to the XRP, so these instructions will guide you through manually creating the necessary folders on the XRP and then uploading the files to the appropriate folder on your XRP. Note that the folder hierarchy aligns with the default hierarchy from SparkFun device drivers and we want to minimize the code reorganization when porting the drivers for use with XRP.
 
-### Qwiic General Installation
+### <a name="qwiic-driver-install"></a>Qwiic I2C Driver Installation
 
 In order to use any of the supported drivers, you must first install the general Qwiic I2C device driver that has been ported to the XRP platform. In order to keep the top level **`/lib`** folder uncluttered, all Qwiic device support will be installed in a subfolder called **`Qwiic`**.
 
@@ -25,6 +25,8 @@ In order to use any of the supported drivers, you must first install the general
 
 ### OLED Display Driver Installation
 
+***Prerequisite: Install the base [Qwiic I2C driver](#qwiic-driver-install) as described in that section.***
+
 1. From **`GitHub/XRP_Qwiic/Qwiic/`**, upload **`qwiic_oled_display.py`** file to the folder **`/lib/Qwiic`**.
 2. Right click on the **`/lib/Qwiic`** folder and create a subfolder called **`qwiic_oled_base`** under the Qwiic folder.
 3. Navigate to the new **`qwiic_oled_base`** folder, right click on that folder and create a subfolder **`fonts`**.
@@ -33,28 +35,46 @@ In order to use any of the supported drivers, you must first install the general
 
 ### LED Stick Driver Installation
 
+***Prerequisite: Install the base [Qwiic I2C driver](#qwiic-driver-install) as described in that section.***
+
 1. From **`GitHub/XRP_Qwiic/Qwiic/`**, upload **`qwiic_led_stick.py`** file to the folder **`/lib/Qwiic`**.
 
 ### Person Sensor Driver Installation
 
+***Prerequisite: Install the base [Qwiic I2C driver](#qwiic-driver-install) as described in that section.***
+
 1. From **`GitHub/XRP_Qwiic/Qwiic/`**, upload **`qwiic_person_sensor.py`** file to the folder **`/lib/Qwiic`**.
+
+### Odometry Sensor Driver Installation
+
+***Prerequisite: Install the base [Qwiic I2C driver](#qwiic-driver-install) as described in that section.***
+
+1. From **`GitHub/XRP_Qwiic/Qwiic/`**, upload **`qwiic_otos.py`** file to the folder **`/lib/Qwiic`**.
+
 
 ## Examples
 
-Sample code using each of the supported Qwiic devices is available in the **`examples`** folder in the **`GitHub/XRP_Qwiic`** repo. Simply upload any of the example files to the base directory on your XRP to test out the device and driver.
+Sample code using each of the supported Qwiic devices is available in the **`examples`** folder in the **`GitHub/XRP_Qwiic`** repo. Simply upload any of the example files to the base directory on your XRP to give them a try.
 
 ### OLED Display Example
 
 The **`xrp_display.py`** example contains a class definition that encapsulates the base device driver and provides a multiline display buffer for the SparkFun OLED display device. Instantiate the XrpDisplay class in your program to have your XRP display status information at runtime.
 
+You can configure some parameters for the XrpDisplay class to tailor the display to your application use case.
+
 ### LED Strip Example
 
 The **`xrp_led_strip.py`** example contains a class definition that encapsulates the base device driver and provides support for the SparkFun LED strip with 10 pixels. Intantiate the XrpLedStick class in your program to allow your XRP to display status via the LED strip.
+
+The XrpLedStick class supports optional configuration settings to tailor the LED behavior to your use case.
 
 ### Person Sensor Example
 
 The **`xrp_person_sensor.py`** example contains a class definition that encapsulates the base device driver and provides support for the UsefulSensor's Person Sensor device. Intantiate the XrpPersonSensor class in your program to allow your XRP to detect a human face and control behavior based on facial recognition.
 
+### Odometry Sensor Example
+
+The **`xrp_odometry.py`** example contains a class definition that encapsulates the base device driver provided by SparkFun for the OTOS sensor. The base driver  is full-featured and this class example simply provides an example of how to instantiate the OTOS device in your XRP application.
 
 
 
